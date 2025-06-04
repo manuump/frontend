@@ -9,24 +9,20 @@ function UserForm({ onUserCreated }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      await userService.createUser({ nombre: username, email, password, rol });
-      onUserCreated(); 
-      setUsername('');
-      setEmail('');
-      setPassword('');
-      setRol('');
-    } catch (err) {
-      alert('Error al crear usuario');
-    }
+    await userService.createUser({ username, email, password, tipo: rol });
+    setUsername('');
+    setEmail('');
+    setPassword('');
+    setRol('USUARIO');
+    onUserCreated();
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <input value={username} onChange={e => setUsername(e.target.value)} placeholder="Nombre" required />
-      <input value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" required />
-      <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Contraseña" required />
-      <select value={rol} onChange={e => setRol(e.target.value)}>
+      <input value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Usuario" required />
+      <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required />
+      <input value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Contraseña" type="password" required />
+      <select value={rol} onChange={(e) => setRol(e.target.value)}>
         <option value="USUARIO">USUARIO</option>
         <option value="EMPRESA">EMPRESA</option>
         <option value="ADMIN">ADMIN</option>

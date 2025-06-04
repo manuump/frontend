@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import userService from '../services/userService';
-import UserForm from '../components/UserForm';
 import UserList from '../components/UserList';
 
 function AdminUserPage() {
@@ -22,8 +21,11 @@ function AdminUserPage() {
   return (
     <div>
       <h2>Gestión de usuarios</h2>
-      <UserForm onUserCreated={loadUsers} />
-      <UserList users={users} />
+      <UserList
+        users={users}
+        onUserDeleted={loadUsers}
+        onRoleChanged={loadUsers}
+      />
     </div>
   );
 }

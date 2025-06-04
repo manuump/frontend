@@ -10,12 +10,25 @@ const getAllUsers = async () => {
   return response.data;
 };
 
-const createUser = async (user) => {
+const deleteUser = async (id) => {
   const token = localStorage.getItem('token');
-  const response = await axios.post(`${API_URL}/usuarios`, user, {
+  await axios.delete(`${API_URL}/usuarios/${id}`, {
     headers: { Authorization: `Bearer ${token}` },
   });
-  return response.data;
 };
 
-export default { getAllUsers, createUser };
+const changeRole = async (id, nuevoRol) => {
+  const token = localStorage.getItem('token');
+  await axios.put(`${API_URL}/usuarios/${id}/rol`, nuevoRol, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+  });
+};
+
+export default {
+  getAllUsers,
+  deleteUser,
+  changeRole,
+};
