@@ -19,12 +19,16 @@ const deleteUser = async (id) => {
 
 const changeRole = async (id, nuevoRol) => {
   const token = localStorage.getItem('token');
-  await axios.put(`${API_URL}/usuarios/${id}/rol`, nuevoRol, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json',
-    },
-  });
+  await axios.put(
+    `${API_URL}/usuarios/${id}/rol`,
+    { rol: nuevoRol }, 
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    }
+  );
 };
 
 export default {

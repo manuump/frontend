@@ -1,0 +1,99 @@
+.home-container {
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px; /* espacio entre logo y caja */
+  padding: 0 40px; /* un poco de margen lateral */
+  box-sizing: border-box;
+}
+
+.home-logo-wrapper {
+  flex-shrink: 0; /* que no se reduzca */
+}
+
+.home-logo-large {
+  width: 220px; /* un poquito más grande */
+  height: auto;
+  display: block;
+  user-select: none;
+}
+
+.home-overlay {
+  background-color: rgba(0, 0, 0, 0.65);
+  color: white;
+  padding: 40px;
+  border-radius: 16px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.home-header {
+  margin-bottom: 24px;
+}
+
+.home-title {
+  font-size: 40px;
+  font-weight: 800;
+  color: #2ecc71;
+}
+
+.home-description {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.home-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.home-btn {
+  background-color: #2ecc71;
+  color: white;
+  text-decoration: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.home-btn:hover {
+  background-color: #27ae60;
+}
+
+@media (max-width: 900px) {
+  .home-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .home-logo-large {
+    width: 160px;
+    margin-bottom: 30px;
+  }
+
+  .home-overlay {
+    max-width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-title {
+    font-size: 28px;
+  }
+
+  .home-description {
+    font-size: 16px;
+  }
+}

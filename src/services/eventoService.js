@@ -12,4 +12,38 @@ const getEventos = async () => {
   return response.data;
 };
 
-export default { getEventos };
+const crearEvento = async (evento) => {
+  const token = localStorage.getItem('token');
+  return axios.post(API_URL, evento, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+const getMisEventos = () => {
+  const token = localStorage.getItem('token');
+  return axios.get(`${API_URL}/mis-eventos`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+const eliminarEvento = (id) => {
+  const token = localStorage.getItem('token');
+  return axios.delete(`${API_URL}/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+
+export default {
+  getMisEventos,
+  crearEvento,
+  eliminarEvento,
+  getEventos,
+};
+

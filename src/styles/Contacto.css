@@ -1,0 +1,29 @@
+.contacto-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.contacto-container h2 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.contacto-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contacto-container ul li {
+  margin-bottom: 0.5rem;
+}
+
+.contacto-container a {
+  color: #2980b9;
+  text-decoration: none;
+}

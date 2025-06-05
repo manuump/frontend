@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
+
+
+
+.auth-container {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.auth-box {
+  background:  rgba(0, 0, 0, 0.65);
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(46, 204, 113, 0.4);
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+}
+
+.auth-box h2 {
+  font-weight: 800;
+  color: #2ecc71;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+  transition: box-shadow 0.3s ease;
+}
+
+
+.auth-button {
+  width: 100%;
+  background-color: #2ecc71;
+  border: none;
+  padding: 14px 0;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+@media (max-width: 480px) {
+  .auth-box {
+    padding: 30px 20px;
+    max-width: 90%;
+  }
+  
+  .auth-box h2 {
+    font-size: 2rem;
+  }
+}

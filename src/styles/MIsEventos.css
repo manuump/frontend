@@ -1,0 +1,127 @@
+/* Contenedor principal */
+.eventos-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Título principal */
+.eventos-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Botón principal (ej: Crear Evento) */
+.btn-principal {
+  padding: 10px 20px;
+  font-size: 14px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.btn-principal:hover {
+  background-color: #218838;
+}
+
+/* Grid para mostrar eventos */
+.eventos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+/* Tarjeta individual */
+.evento-card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.evento-card:hover {
+  transform: scale(1.02);
+}
+
+.evento-imagen {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.evento-info {
+  padding: 15px;
+}
+
+.evento-nombre {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.evento-descripcion {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.evento-detalle {
+  font-size: 14px;
+  margin: 3px 0;
+}
+
+/* Botón de eliminar */
+.btn-eliminar {
+  padding: 8px 14px;
+  font-size: 13px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-eliminar:hover {
+  background-color: #c82333;
+}
+
+/* Formulario de creación de evento */
+.form-crear-evento {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-crear-evento input,
+.form-crear-evento textarea {
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.form-crear-evento button {
+  align-self: flex-start;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-crear-evento button:hover {
+  background-color: #0056b3;
+}
