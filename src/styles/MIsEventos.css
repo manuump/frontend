@@ -125,3 +125,39 @@
 .form-crear-evento button:hover {
   background-color: #0056b3;
 }
+
+
+.lista-participantes {
+  margin-top: 1rem;
+  background-color: #f8f8f8;
+  padding: 0.75rem;
+  border-radius: 8px;
+  list-style: none;
+}
+
+.lista-participantes li {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #ddd;
+  font-weight: 500;
+}
+
+.lista-participantes li:last-child {
+  border-bottom: none;
+}
+
+.btn-secundario {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+.btn-secundario:hover {
+  background-color: #2980b9;
+}
+
