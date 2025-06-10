@@ -29,7 +29,6 @@ function MisEventos() {
   };
 
   const toggleParticipantes = async (eventoId) => {
-    // Si ya tenemos los datos, solo alternamos la visualización
     if (participantesEvento[eventoId] !== undefined) {
       setMostrarParticipantes(prev => ({
         ...prev,
@@ -38,10 +37,8 @@ function MisEventos() {
       return;
     }
 
-    // Si no tenemos datos, los cargamos
     try {
       setMostrarParticipantes(prev => ({ ...prev, [eventoId]: true }));
-
       const participantes = await participacionService.getParticipantesPorEvento(eventoId);
       console.log('Datos recibidos para evento', eventoId, ':', participantes);
 
@@ -52,6 +49,14 @@ function MisEventos() {
     } catch (error) {
       console.error('Error al cargar participantes:', error);
       setParticipantesEvento(prev => ({ ...prev, [eventoId]: [] }));
+    }
+  };
+
+  const handleDescargarPdf = async (eventoId) => {
+    try {
+      await participacionService.descargarPdf(eventoId);
+    } catch (error) {
+      console.error('Error al descargar el PDF:', error);
     }
   };
 
@@ -79,6 +84,10 @@ function MisEventos() {
 
                 <button className="btn-secundario" onClick={() => toggleParticipantes(evento.id)}>
                   {mostrarParticipantes[evento.id] ? 'Ocultar Participantes' : 'Ver Participantes'}
+                </button>
+
+                <button className="btn-descargar" onClick={() => handleDescargarPdf(evento.id)}>
+                  Descargar PDF
                 </button>
 
                 {mostrarParticipantes[evento.id] && (
