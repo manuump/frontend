@@ -112,3 +112,25 @@
   border-radius: 5px;
   text-align: center;
 }
+
+.filtro-container {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.filtro-container label {
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.filtro-container input[type="date"],
+.filtro-container input[type="text"] {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  max-width: 250px;
+}
+

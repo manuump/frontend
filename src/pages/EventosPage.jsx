@@ -6,6 +6,7 @@ import '../styles/EventosPage.css';
 function EventosPage() {
   const [eventos, setEventos] = useState([]);
   const [fechaFiltro, setFechaFiltro] = useState('');
+  const [busqueda, setBusqueda] = useState('');
   const [paginaActual, setPaginaActual] = useState(1);
   const [mensaje, setMensaje] = useState('');
   const eventosPorPagina = 6;
@@ -19,7 +20,7 @@ function EventosPage() {
 
   const handleParticipar = async (eventoId) => {
     try {
-      const token = localStorage.getItem('token'); 
+      const token = localStorage.getItem('token');
       if (!token) {
         setMensaje('Debes iniciar sesión para participar.');
         return;
@@ -33,9 +34,20 @@ function EventosPage() {
     setTimeout(() => setMensaje(''), 4000);
   };
 
+  const handleFechaFiltro = (e) => {
+    setFechaFiltro(e.target.value);
+    setPaginaActual(1);
+  };
+
+  const handleBusqueda = (e) => {
+    setBusqueda(e.target.value);
+    setPaginaActual(1);
+  };
+
   const eventosFiltrados = eventos.filter(e => {
-    if (!fechaFiltro) return true;
-    return new Date(e.fecha) >= new Date(fechaFiltro);
+    const pasaFiltroFecha = !fechaFiltro || new Date(e.fecha) >= new Date(fechaFiltro);
+    const pasaFiltroNombre = e.nombre.toLowerCase().includes(busqueda.toLowerCase());
+    return pasaFiltroFecha && pasaFiltroNombre;
   });
 
   const totalPaginas = Math.ceil(eventosFiltrados.length / eventosPorPagina);
@@ -51,16 +63,21 @@ function EventosPage() {
     if (paginaActual < totalPaginas) setPaginaActual(paginaActual + 1);
   };
 
-  const handleFechaFiltro = (e) => {
-    setFechaFiltro(e.target.value);
-    setPaginaActual(1);
-  };
-
   return (
     <div className="eventos-container">
       <h2 className="eventos-title">Eventos</h2>
 
       {mensaje && <div className="mensaje">{mensaje}</div>}
+
+      <div className="filtro-container">
+        <label>Buscar por nombre: </label>
+        <input
+          type="text"
+          value={busqueda}
+          onChange={handleBusqueda}
+          placeholder="Buscar evento..."
+        />
+      </div>
 
       <div className="filtro-container">
         <label>Filtrar por fecha en adelante: </label>
